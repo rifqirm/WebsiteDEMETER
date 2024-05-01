@@ -92,22 +92,22 @@ const ModalKeranjang = ({
       </Modal>
     );
   } else {
-    // return (
-    //     <Modal show={showModal} onHide={handleClose}>
-    //         <Modal.Header closeButton>
-    //             <Modal.Title>Kosong</Modal.Title>
-    //         </Modal.Header>
-    //         <Modal.Body>Kosong</Modal.Body>
-    //         <Modal.Footer>
-    //             <Button variant="danger" onClick={handleClose}>
-    //                 Close
-    //             </Button>
-    //             <Button variant="success" onClick={handleClose}>
-    //                 Save Changes
-    //             </Button>
-    //         </Modal.Footer>
-    //     </Modal>
-    // )
+    return (
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Kosong</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Kosong</Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="success" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    );
   }
 };
 

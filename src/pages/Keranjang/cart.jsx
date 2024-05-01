@@ -70,7 +70,6 @@ export default class CartPage extends Component {
           axios
             .post(API_URL + "keranjangs", isiKeranjang)
             .then((res) => {
-              this.getListKeranjang();
               Swal.fire({
                 title: "Sukses Masuk Keranjang",
                 text:
@@ -78,6 +77,7 @@ export default class CartPage extends Component {
                 icon: "success",
                 confirmButtonColor: "#54B435", // Mengatur warna tombol "OKE"
               });
+              this.getListKeranjang();
             })
             .catch((error) => {
               console.log("Error:", error);

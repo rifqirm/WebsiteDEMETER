@@ -1,1 +1,1 @@
-export const API_URL = "https://demeter-db-json.vercel.app/";
+export const API_URL = "https://db-json-deploy-on-render.onrender.com/";
