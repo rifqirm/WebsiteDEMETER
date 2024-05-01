@@ -5,6 +5,7 @@ import ModalKeranjang from "../ModalKeranjang/ModalKeranjang";
 import TotalBayar from "../TotalBayar/TotalBayar";
 import { API_URL } from "../../utils/constants";
 import axios from "axios";
+import swal from "sweetalert";
 import Swal from "sweetalert2";
 
 export default class Hasil extends Component {
@@ -75,7 +76,7 @@ export default class Hasil extends Component {
     axios
       .put(API_URL + "keranjangs/" + this.state.keranjangDetail.id, data)
       .then((res) => {
-        Swal.fire({
+        swal({
           title: "Update Produk!",
           text: "Sukses Update Produk " + data.product.nama,
           icon: "success",
