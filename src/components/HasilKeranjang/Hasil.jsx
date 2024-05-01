@@ -75,7 +75,6 @@ export default class Hasil extends Component {
     axios
       .put(API_URL + "keranjangs/" + this.state.keranjangDetail.id, data)
       .then((res) => {
-        this.props.getListKeranjang();
         swal({
           title: "Update Produk!",
           text: "Sukses Update Produk " + data.product.nama,
@@ -83,6 +82,7 @@ export default class Hasil extends Component {
           button: false,
           timer: 1500,
         });
+        this.props.getListKeranjang();
       })
       .catch((error) => {
         console.log("Error yaa ", error);
@@ -90,8 +90,6 @@ export default class Hasil extends Component {
   };
 
   hapusPesanan = (id) => {
-    this.handleClose();
-
     Swal.fire({
       title: "Apakah Anda yakin?",
       text:
@@ -116,6 +114,7 @@ export default class Hasil extends Component {
               icon: "success",
               confirmButtonColor: "#54B435",
             });
+            this.handleClose();
           })
           .catch((error) => {
             console.log("Error:", error);
