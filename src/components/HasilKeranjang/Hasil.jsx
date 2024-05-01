@@ -63,7 +63,6 @@ export default class Hasil extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-
     this.handleClose();
 
     const data = {
