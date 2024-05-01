@@ -75,7 +75,7 @@ export default class Hasil extends Component {
     axios
       .put(API_URL + "keranjangs/" + this.state.keranjangDetail.id, data)
       .then((res) => {
-        Swal({
+        Swal.fire({
           title: "Update Produk!",
           text: "Sukses Update Produk " + data.product.nama,
           icon: "success",
