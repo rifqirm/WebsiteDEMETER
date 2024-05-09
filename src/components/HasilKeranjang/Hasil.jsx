@@ -109,11 +109,12 @@ export default class Hasil extends Component {
           .delete(API_URL + "keranjangs/" + id)
           .then((result) => {
             this.props.getListKeranjang();
-            Swal.fire({
+            swal({
               title: "Menghapus",
               text: "Produk Berhasil Di Hapus",
               icon: "success",
-              confirmButtonColor: "#54B435",
+              button: false,
+              timer: 1500,
             });
           })
           .catch((error) => {

@@ -82,8 +82,8 @@ body{
 }
 
 .row2 h4{
-    margin-left: 80px;
-    margin-top: -40px;
+    margin-left: 2.5rem;
+    margin-top: -52px;
     margin-bottom: 90px;
     font-weight: bold;
     font-size: 24px;
@@ -644,6 +644,121 @@ body{
     width: -webkit-fill-available;
 }
 
+
+
+
+
+
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap; /* agar elemen footer dapat wrap ke bawah jika diperlukan */
+}
+
+.footerLeft {
+    display: flex;
+    align-items: center;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column; /* Menjadikan konten dalam kolom */
+    text-align: center; /* Menengahkan konten */
+    margin-left: 40rem;
+    margin-bottom: -5rem;
+}
+
+.logoContainer img {
+    height: 50px; /* Sesuaikan dengan tinggi logo */
+    margin-bottom: 10px; /* Jarak antara logo dan teks */
+}
+
+.hubungiKami {
+    display: flex;
+    align-items: center;
+    flex-direction: column; /* Menjadikan konten dalam kolom */
+    margin-left: 17rem;
+    margin-top: 3rem;
+}
+
+.hubungiKami h5 {
+    margin-bottom: 5px; /* Jarak antara judul dan ikon */
+}
+
+.hubungiKami div a {
+    margin-bottom: 5px; /* Jarak antara ikon */
+}
+
+.sosmedIcons a {
+    color: white;
+    font-size: 24px; /* Ukuran ikon */
+    margin-right: 10px; /* Jarak antara ikon */
+}
+
+.sosmedIcons a:hover {
+    /* color: rgb(184, 184, 184); */
+    color: #A5D595
+}
+
+.sosmedIcons a:last-child {
+    margin-right: 0; /* Hapus jarak kanan untuk ikon terakhir */
+}
+
+.footerRight {
+    text-align: center; /* Posisi tengah */
+    width: 100%; /* agar footerRight memenuhi lebar */
+    margin-top: 20px; /* Jarak dari atas */
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+    .footerLeft {
+        margin-left: auto; /* Menempatkan ke kanan */
+        margin-right: 20px; /* Mengatur jarak kanan */
+    }
+
+    .hubungiKami {
+        margin-left: auto; /* Menempatkan ke kanan */
+        margin-right: 20px; /* Mengatur jarak kanan */
+        margin-top: 20px; /* Mengatur jarak atas */
+    }
+}
+
+/* Responsif untuk layar ukuran 1200px */
+@media (max-width: 1200px) {
+    .footerLeft {
+        flex-direction: column; /* Menjadikan konten dalam kolom */
+        align-items: center; /* Menengahkan konten */
+    }
+
+    .hubungiKami {
+        margin-left: 0; /* Reset margin kiri */
+        margin-top: 10px; /* Mengatur jarak atas */
+    }
+
+    .hubungiKami h5 {
+        margin-bottom: 10px; /* Jarak antara judul dan ikon */
+    }
+
+    .sosmedIcons a {
+        font-size: 30px; /* Perbesar ukuran ikon */
+        margin-bottom: 10px; /* Jarak antara ikon */
+    }
+
+    .sosmedIcons a:last-child {
+        margin-bottom: 0; /* Hapus jarak bawah untuk ikon terakhir */
+    }
+}
+
+
+  
+  
+  
+  
 
 @media (max-width: 768px) {
     .grid_product {
