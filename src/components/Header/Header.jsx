@@ -12,7 +12,7 @@ const Header = () => {
       en: "Product Request",
     },
     description: {
-      id: "Di bawah ini adalah formulir yang dibuat untuk menambahkan produk. Setiap pengguna boleh mengasih saran atau masukan produk melalui menu tambah produk ini dengan mengisi form ini. Semua saran atau permintaan penambahan produk akan kami seleksi secara menyeluruh, terima kasih. 😊",
+      id: "Di bawah ini adalah formulir yang dibuat untuk menambahkan produk. Setiap pengguna boleh mengasih saran atau masukan produk melalui menu tambah produk ini dengan mengisi formulir dibawah ini. Semua saran atau permintaan penambahan produk akan kami seleksi secara menyeluruh, terima kasih. 😊",
       en: "Below is a form created for adding products. Every user is welcome to provide suggestions or input on products through this add product menu by filling out this form. All suggestions or product addition requests will be thoroughly reviewed, thank you. 😊",
     },
   };

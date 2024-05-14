@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Row, Col, Button, Modal, Form } from "react-bootstrap";
 import { numberWithCommas } from "../../utils/utils";
@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { API_URL } from "../../utils/constants";
 import "./TotalBayar.css";
+import { faFileAlt } from "@fortawesome/free-regular-svg-icons"; // Import icon
 
 function TotalBayar(props) {
   const navigate = useNavigate();
@@ -170,7 +171,10 @@ function TotalBayar(props) {
       {/* Modal */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Form Order Produk</Modal.Title>
+          <Modal.Title>
+            <FontAwesomeIcon icon={faFileAlt} className="me-2" />
+            Formulir Pemesanan Produk
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
@@ -236,13 +240,13 @@ function TotalBayar(props) {
             </Form.Group>
 
             <center>
-              <h5>
+              <h5 className="totalbayarform">
                 Total Harga :{" "}
                 <strong>Rp. {numberWithCommas(totalBayar)}</strong>
               </h5>
             </center>
 
-            <div className="text-center mt-3">
+            <div className="text-center mt-4">
               <Button variant="primary" type="submit">
                 PESAN SEKARANG
               </Button>

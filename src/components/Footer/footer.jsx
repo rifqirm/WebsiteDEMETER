@@ -39,7 +39,7 @@ const Footer = () => {
         </div>
       </div>
       <div className={Styles.footerRight}>
-        <p>&copy; Copyright DEMETER 2023</p>
+        <p>&copy; Copyright DEMETER 2024</p>
       </div>
     </div>
   );
