@@ -3,6 +3,7 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import Input from "../../elements/Input/Input";
 import Button from "../../elements/Button/Button";
+import swal from "sweetalert";
 import Swal from "sweetalert2";
 import { UpdateProduct, HapusProduct } from "../../helpers/gqlHasura";
 
@@ -119,10 +120,12 @@ const DetailProduct = () => {
         })
           .then(() => {
             navigate("/produkList");
-            Swal.fire({
+            swal({
               title: "Berhasil",
               text: "Produk " + dataEdit.productName + " Telah Dihapus",
               icon: "success",
+              button: false,
+              timer: 1500,
             });
           })
           .catch((error) => {

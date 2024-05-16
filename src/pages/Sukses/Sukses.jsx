@@ -25,10 +25,12 @@ export default class Sukses extends Component {
   render() {
     return (
       <div className="mt-4 text-center">
-        <Image src="assets/images/sukses.png" width="500" />
+        <Image src="assets/images/sukses2.png" width="500" />
         <h2>Order Produk Sukses</h2>
         <p variant="sukses">
-          <center>Terimakasih Sudah Membeli Produk!</center>
+          <center>
+            Terimakasih sudah membeli produk, penjual akan menghubungi Anda!
+          </center>
         </p>
         <Button variant="primary" as={Link} to="/">
           Kembali

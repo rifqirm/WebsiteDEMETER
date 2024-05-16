@@ -59,7 +59,7 @@ function TotalBayar(props) {
 
     if (!nama) {
       formIsValid = false;
-      errors["nama"] = "Nama wajib diisi";
+      errors["nama"] = "Nama lengkap wajib diisi";
     }
 
     if (!nomorHP) {
@@ -80,12 +80,12 @@ function TotalBayar(props) {
 
     if (!noKtp) {
       formIsValid = false;
-      errors["noKtp"] = "Nomor KTP wajib diisi";
+      errors["noKtp"] = "Nomor NIK KTP wajib diisi";
     } else {
       let pattern = /^[0-9]{16}$/;
       if (!pattern.test(noKtp)) {
         formIsValid = false;
-        errors["noKtp"] = "Nomor KTP harus terdiri dari 16 digit angka";
+        errors["noKtp"] = "Nomor NIK KTP harus terdiri dari 16 digit angka";
       }
     }
 
@@ -179,10 +179,10 @@ function TotalBayar(props) {
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="nama">
-              <Form.Label>Nama</Form.Label>
+              <Form.Label>Nama Lengkap</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Masukkan nama Anda!"
+                placeholder="Masukkan nama lengkap Anda!"
                 name="nama"
                 value={form.nama}
                 onChange={handleInputChange}
@@ -215,10 +215,10 @@ function TotalBayar(props) {
             </Form.Group>
 
             <Form.Group controlId="noKtp">
-              <Form.Label>Nomor KTP</Form.Label>
+              <Form.Label>Nomor NIK KTP</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Masukkan nomor KTP Anda (16 digit angka)!"
+                placeholder="Masukkan nomor NIK KTP Anda (16 digit angka)!"
                 name="noKtp"
                 value={form.noKtp}
                 onChange={handleInputChange}
