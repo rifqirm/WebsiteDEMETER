@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Styles from "../../styles/global.module.css";
 import ProductItem from "../../components/ProdukItem/product_item";
 import { FaShippingFast, FaFunnelDollar, FaUserShield } from "react-icons/fa";
@@ -15,6 +15,15 @@ import product8 from "../../assets/product/8aglonemaRotundumAceh.jpg";
 import home_banner4 from "../../assets/home_banner4-removebg.png";
 
 const Homepage = () => {
+  const navigate = useNavigate();
+  const linkRef = useRef(null);
+
+  const handleShopNowClick = (e) => {
+    e.preventDefault();
+    navigate("/keranjang");
+    window.scrollTo(0, 0); // Scroll to the top
+  };
+
   return (
     <>
       <div className={`${Styles.wrapper} ${Styles.banner1}`}></div>
@@ -31,43 +40,43 @@ const Homepage = () => {
             image={product2}
             title="Aglonema Bigroy"
             price="IDR 60.000"
-            action="product2/"
+            to="/cart"
           />
           <ProductItem
             image={product3}
             title="Aglonema Khocin"
             price="IDR 60.000"
-            action="detail_link_sample3"
+            to="/cart"
           />
           <ProductItem
             image={product4}
             title="Aglonema Red Anjamani"
             price="IDR 80.000"
-            action="detail_link_sample4"
+            to="/cart"
           />
           <ProductItem
             image={product5}
             title="Aglonema Red Chocin"
             price="IDR 80.000"
-            action="detail_link_sample5"
+            to="/cart"
           />
           <ProductItem
             image={product6}
             title="Aglonema Super White"
             price="IDR 90.000"
-            action="detail_link_sample6"
+            to="/cart"
           />
           <ProductItem
             image={product7}
             title="Aglonema Rodud Anjamani"
             price="IDR 65.000"
-            action="detail_link_sample7"
+            to="/cart"
           />
           <ProductItem
             image={product8}
             title="Aglonema Snow White"
             price="IDR 27.500"
-            action="detail_link_sample8"
+            to="/cart"
           />
         </div>
 
@@ -81,7 +90,9 @@ const Homepage = () => {
                 Membawa keindahan alam ke rumah Anda dan Rasakan keajaiban alam
                 dengan Demeter.
               </p>
-              <Link to="/keranjang">BELANJA SEKARANG</Link>
+              <Link ref={linkRef} to="/keranjang" onClick={handleShopNowClick}>
+                BELANJA SEKARANG
+              </Link>
             </div>
             <div>
               <img
