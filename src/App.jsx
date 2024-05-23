@@ -21,6 +21,7 @@ import Footer from "./components/Footer/footer";
 import CreateProduct from "./pages/CreateProduct/CreateProduct";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import DetailProduct from "./pages/DetailProduct/DetailProduct";
+import UpdateCreateProduct from "./pages/UpdateCreateProduct/UpdateCreateProduct";
 // import ProductsContext from './components/context/ProductsContext';
 // import LoginPage from './pages/LoginPage/LoginPage'
 // import PrivateRoute from './routes/PrivateRoute';
@@ -43,6 +44,10 @@ function App() {
         {/* <Route path="/contactpage" element={<ContactPage />} /> */}
         {/* <Route element={<PrivateRoute />}> */}
         <Route path="/requestproduk" element={<CreateProduct />} />
+        <Route
+          path="/admin-updaterequestproduct"
+          element={<UpdateCreateProduct />}
+        />
         <Route path="/detailproduct/:productId" element={<DetailProduct />} />
         {/* </Route> */}
         <Route path="/detailproduct/:productId" element={<DetailProduct />} />
