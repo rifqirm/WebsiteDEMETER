@@ -30,7 +30,7 @@ const ProductList = () => {
   return (
     <>
       <center>
-        <div className="container text-center mt-5">
+        <div className="container text-center">
           <img
             style={{ height: 300, width: "300px" }}
             src={logo}

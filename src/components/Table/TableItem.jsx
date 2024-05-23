@@ -1,132 +1,122 @@
-import { useContext, useState } from "react"
-import { Link } from "react-router-dom"
-import Button from "../../elements/Button/Button"
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Button from "../../elements/Button/Button";
 // import ProductsContext from "../../context/ProductsContext"
-import { gql, useMutation } from "@apollo/client"
-import { GetProductList, HapusProduct, UpdateProduct } from "../../helpers/gqlHasura"
+import { gql, useMutation } from "@apollo/client";
+import {
+  GetProductList,
+  HapusProduct,
+  UpdateProduct,
+} from "../../helpers/gqlHasura";
 
-const TableItem = ({ table }) => {
+const TableItem = ({ table, index }) => {
+  // const { products, setProducts } = useContext(ProductsContext)
 
-    // const { products, setProducts } = useContext(ProductsContext)
+  const [isEditing, setIsEditing] = useState(false);
+  const [tempdata, setTempData] = useState({});
 
-    const [isEditing, setIsEditing] = useState(false)
-    const [tempdata, setTempData] = useState({})
+  // console.log(tempdata)
 
-    // console.log(tempdata)
+  const [hapusProduct] = useMutation(HapusProduct, {
+    refetchQueries: [{ query: GetProductList }],
+  });
 
-    const [hapusProduct] = useMutation(HapusProduct, {
-        refetchQueries: [{ query: GetProductList}],
-    });
+  const [updateProduct] = useMutation(UpdateProduct, {
+    refetchQueries: [{ query: GetProductList }],
+  });
 
-    const [updateProduct] = useMutation(UpdateProduct, {
-        refetchQueries: [{ query: GetProductList}],
-    });
+  const editHandler = (table) => {
+    setIsEditing(true);
+    setTempData(table);
+  };
 
+  //   const saveHandler = () => {
+  //     setIsEditing(false);
+  //     console.log(tempdata);
+  //     updateProduct({
+  //       variables: {
+  //         id: tempdata.id,
+  //         object: {
+  //           name: tempdata.name,
+  //           price: tempdata.price,
+  //           freshness: tempdata.freshness,
+  //           category: tempdata.category,
+  //           description: tempdata.description, // Adding the new field
+  //         },
+  //       },
+  //     });
+  //   };
 
-    const editHandler = (table) => {
-        setIsEditing(true)
-        setTempData(table)
-    }
+  //   const deleteHandler = (id) => {
+  //     console.log(id);
 
-    const saveHandler = () => {
-        setIsEditing(false)
-        console.log(tempdata)
-        updateProduct({
-            variables: {
-                id: tempdata.id,
-                object: {
-                    name: tempdata.name,
-                    price: tempdata.price,
-                    freshness: tempdata.freshness,
-                    category: tempdata.category
-                }
-            },
-        });
+  //     if (window.confirm("Are you sure you want to delete this item?")) {
+  //       hapusProduct({
+  //         variables: {
+  //           id: id,
+  //         },
+  //       });
+  //     }
+  //   };
 
-    }
-
-    const deleteHandler = (id) => {
-
-        console.log(id)
-
-        if (window.confirm('Are you sure you want to delete this item?')) {
-
-            hapusProduct({
-                variables: {
-                    id: id
-                }
-            })
-
+  return (
+    <tr className={isEditing ? "bg-primary" : ""}>
+      <td>{index + 1}</td>
+      <td
+        className={isEditing ? "text-white border-2 border-danger" : ""}
+        contentEditable={isEditing}
+        suppressContentEditableWarning={true}
+        onInput={(e) =>
+          setTempData((prev) => ({ ...prev, name: e.target.textContent }))
         }
-    }
+      >
+        {table.name}
+      </td>
+      <td
+        className={isEditing ? "text-white" : ""}
+        contentEditable={isEditing}
+        suppressContentEditableWarning={true}
+        onInput={(e) =>
+          setTempData((prev) => ({ ...prev, category: e.target.textContent }))
+        }
+      >
+        {table.category}
+      </td>
+      <td
+        className={isEditing ? "text-white" : ""}
+        contentEditable={isEditing}
+        suppressContentEditableWarning={true}
+        onInput={(e) =>
+          setTempData((prev) => ({ ...prev, freshness: e.target.textContent }))
+        }
+      >
+        {table.freshness}
+      </td>
+      <td
+        className={isEditing ? "text-white" : ""}
+        contentEditable={isEditing}
+        suppressContentEditableWarning={true}
+        onInput={(e) =>
+          setTempData((prev) => ({
+            ...prev,
+            description: e.target.textContent,
+          }))
+        }
+      >
+        {table.description}
+      </td>
+      <td
+        className={isEditing ? "text-white" : ""}
+        contentEditable={isEditing}
+        suppressContentEditableWarning={true}
+        onInput={(e) =>
+          setTempData((prev) => ({ ...prev, price: e.target.textContent }))
+        }
+      >
+        {table.price}
+      </td>
+    </tr>
+  );
+};
 
-    return (
-        <tr className={isEditing && "bg-primary"}>
-            <td>
-                <Link
-                    className={isEditing && "text-white border-2 border-danger"}
-                    to={`/detailproduct/${table.id}`}
-                >
-                    {table.id}
-                </Link>
-            </td>
-            <td
-                className={isEditing && "text-white"}
-                suppressContentEditableWarning={true}
-                onInput={(e) => setTempData(prev => ({ ...prev, name: e.target.textContent }))}
-                contentEditable={isEditing} >
-                {table.name}
-            </td>
-            <td
-                className={isEditing && "text-white"}
-                suppressContentEditableWarning={true}
-                onInput={(e) => setTempData(prev => ({ ...prev, category: e.target.textContent }))}
-                contentEditable={isEditing} >
-                {table.category}
-            </td>
-            <td>
-                <img
-                    style={{ width: '300px', height: '200px' }}
-                    src={table.image}
-                    alt="image.jpg"
-                />
-            </td>
-            <td
-                className={isEditing && "text-white"}
-                suppressContentEditableWarning={true}
-                onInput={(e) => setTempData(prev => ({ ...prev, freshness: e.target.textContent }))}
-                contentEditable={isEditing} >
-                {table.freshness}
-            </td>
-            <td
-                className={isEditing && "text-white"}
-                suppressContentEditableWarning={true}
-                onInput={(e) => setTempData(prev => ({ ...prev, price: e.target.textContent }))}
-                contentEditable={isEditing} >
-                {table.price}
-            </td>
-            <td>
-                {isEditing ?
-                    (<Button
-                        onClick={() => saveHandler()}
-                        className="btn btn-success"
-                        label="Save" />)
-                    :
-                    (<Button
-                        onClick={() => editHandler(table)}
-                        className="btn btn-warning"
-                        label="Edit" />)
-                }
-            </td>
-            <td>
-                <Button
-                    onClick={() => deleteHandler(table.id)}
-                    className="btn btn-danger"
-                    label="Delete" />
-            </td>
-
-        </tr>
-    )
-}
-
-export default TableItem
+export default TableItem;
