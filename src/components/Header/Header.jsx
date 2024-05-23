@@ -12,8 +12,8 @@ const Header = () => {
       en: "Product Request",
     },
     description: {
-      id: "Di bawah ini adalah formulir yang dibuat untuk menambahkan produk. Setiap pengguna boleh mengasih saran atau masukan produk melalui menu tambah produk ini dengan mengisi formulir dibawah ini. Semua saran atau permintaan penambahan produk akan kami seleksi secara menyeluruh, terima kasih. 😊",
-      en: "Below is a form created for adding products. Every user is welcome to provide suggestions or input on products through this add product menu by filling out this form. All suggestions or product addition requests will be thoroughly reviewed, thank you. 😊",
+      id: "Di bawah ini adalah formulir yang dibuat untuk menambahkan produk. Setiap pengguna boleh mengasih saran atau meminta dimasukan-nya produk melalui menu tambah produk ini dengan mengisi formulir dibawah ini. Semua saran atau permintaan penambahan produk akan kami seleksi secara menyeluruh, terima kasih. 😊",
+      en: "Below is a form created for adding products. Every user is welcome to provide suggestions or request the addition of a product through this Add Product menu by filling out the form below. All suggestions or product addition requests will be thoroughly reviewed. Thank you. 😊",
     },
   };
 
@@ -30,7 +30,7 @@ const Header = () => {
   };
 
   return (
-    <div className="container text-center">
+    <div className="container text-center mt-5">
       <img style={{ height: 200, width: "200px" }} src={logo} alt="Hero Logo" />
       <div className="container mt-4">
         <HeaderTitle label={title} />

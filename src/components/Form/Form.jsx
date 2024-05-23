@@ -85,9 +85,9 @@ const Form = ({ product }) => {
     if (!data.productCathegory) {
       newErrors.productCathegory = "Harap Pilih Kategori Produk!";
     }
-    // if (!data.productImage) {
-    //   newErrors.productImage = "Harap Input Gambar Produk!";
-    // }
+    if (!data.productImage) {
+      newErrors.productImage = "Harap Input Gambar Produk!";
+    }
     if (!data.productFreshness) {
       newErrors.productFreshness = "Harap Pilih Jenis Produk!";
     }
@@ -95,7 +95,7 @@ const Form = ({ product }) => {
       newErrors.productDesc = "Harap Isi Deskripsi Tambahan!";
     }
     if (!data.productPrice) {
-      newErrors.productPrice = "Harap Isi Banyaknya Produk Yang Diminta!";
+      newErrors.productPrice = "Harap Isi Banyaknya Produk!";
     }
 
     setErrors(newErrors);
@@ -228,7 +228,7 @@ const Form = ({ product }) => {
           {errors.productCathegory}
         </small>
       </div>
-      {/* <div className="mb-4 w-50">
+      <div className="mb-4 w-50">
         <label className="form-label" htmlFor="productImage">
           Gambar Produk
         </label>
@@ -244,7 +244,7 @@ const Form = ({ product }) => {
           {errors.productImage}
         </small>
         <p>{percent}%</p>
-      </div> */}
+      </div>
       <div className="mb-4">
         <label className="form-label" htmlFor="productFreshness">
           Jenis Produk
@@ -312,7 +312,7 @@ const Form = ({ product }) => {
       </div>
       <div className="mb-4 w-50">
         <label className="form-label" htmlFor="productPrice">
-          Jumlah Produk Yang Diminta
+          Jumlah Produk Yang Ingin Ditambahkan
         </label>
         <input
           type="number"

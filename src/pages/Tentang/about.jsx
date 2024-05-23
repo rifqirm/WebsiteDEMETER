@@ -22,7 +22,7 @@ class AboutPage extends Component {
                 DEMETER
               </strong>
               <br />
-              &emsp;&emsp;Demeter Tanaman Hias adalah platform toko online yang
+              &emsp;&emsp;Demeter Tanaman Hias adalah toko online yang
               menyediakan berbagai macam jenis tanaman hias dengan kualitas
               terbaik dan harga yang terjangkau. Kami berkomitmen untuk
               memberikan pelayanan terbaik kepada pelanggan dengan menjual

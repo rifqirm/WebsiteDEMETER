@@ -92,7 +92,7 @@ const DetailProduct = () => {
       valid = false;
     }
     if (!dataEdit.productPrice) {
-      errors.productPrice = "Jumlah produk yang diminta harus diisi";
+      errors.productPrice = "Jumlah produk harus diisi";
       valid = false;
     }
 
@@ -228,7 +228,7 @@ const DetailProduct = () => {
           </select>
           <small className="text-danger">{formErrors.productCathegory}</small>
         </div>
-        {/* <div className="mb-4 w-50">
+        <div className="mb-4 w-50">
           <label className="form-label" htmlFor="productImage">
             Gambar Produk
           </label>
@@ -247,7 +247,7 @@ const DetailProduct = () => {
             onChange={handleInput}
             accept="image/*"
           />
-        </div> */}
+        </div>
         <div className="mb-4">
           <label className="form-label" htmlFor="productFreshness">
             Jenis Produk
@@ -311,7 +311,7 @@ const DetailProduct = () => {
         </div>
         <div className="mb-4 w-50">
           <label className="form-label" htmlFor="productPrice">
-            Jumlah Produk Yang Diminta
+            Jumlah Produk Yang Ingin Ditambahkan
           </label>
           <input
             type="number"
